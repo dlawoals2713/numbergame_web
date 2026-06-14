@@ -1,69 +1,70 @@
-/* ── [기본 베이스 스타일 설정] ── */
+/* 전체 영역에 대한 설정 */
 body {
-    font-family: 'Malgun Gothic', sans-serif; /* 가독성이 좋은 맑은 고딕 지정 */
-    margin: 0; /* 브라우저 기본 여백(마진) 제거 */
-    background: #f5f5f5; /* 눈이 편안한 밝은 회색 배경 처리 */
-    color: #222; /* 기본 텍스트 색상을 진한 회색으로 설정 */
+    font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕을 폰트로 설정 */
+    margin: 0; /* 외부 여백 삭제 */
+    background: #f5f5f5; /* 배경색은 흰색 */
+    color: #222; /* 텍스트색은 검은색 */
 }
-
-/* ── [상단 헤더 스타일 영역] ── */
+/* 헤더에 대한 설정 */
 header {
-    background: #1a1a2e; /* 딥네이비 색상으로 고급스러운 느낌 부여 */
-    color: white; /* 헤더 글자색은 흰색 */
-    padding: 16px 24px; /* 위아래 16px, 좌우 24px 여백 */
-    display: flex; /* 가로 배열 레이아웃 활성화 */
-    align-items: center; /* 세로축 기준 중앙 정렬 */
-    justify-content: space-between; /* 타이틀과 우측 상태창을 양끝으로 배치 */
+    background: #1a1a2e; /* 배경색은 네이비색 */
+    color: white; /* 글자색은 흰색 */
+    padding: 16px 24px; /* 내부 여백 상하 16px, 좌우 24px로 설정 */
+    display: flex; /* 가로 배열 구조로 설정 */
+    align-items: center; /* 수직 축을 기준으로 구성 요소들을 정중앙 정렬 */
+    justify-content: space-between; /* 좌측 로고 타이틀과 우측 인증 상태 표시창을 양끝으로 균등 분할 배치 */
 }
-header h1 { 
-    margin: 0; /* 제목 태그의 기본 마진 제거 */
-    font-size: 1.4rem; /* 적절한 글자 크기 조정 */
+/* 헤더 내부의 h1 태그에 대한 설정 */
+header h1 {
+    margin: 0; /* 외부 여백을 0으로 설정 */
+    font-size: 1.4rem; /* 글자 크기를 1.4rem으로 설정 */
 }
+/* 헤더 내부 일반 텍스트 문구에 대한 설정 */
 header span { 
-    color: white; 
-    font-size: 0.9rem; 
+    color: white; /* 글자색은 흰색 */
+    font-size: 0.9rem; /* 폰트 크기를 본문의 90%로 설정 */
 }
-
-/* ── [네비게이션 메뉴 스타일 영역] ── */
+/* 네비게이션 바에 대한 설정 */
 nav {
-    background: #16213e; /* 헤더보다 조금 더 밝은 네이비 색상 */
-    padding: 0 24px; /* 좌우 여백 */
-    display: flex; /* 메뉴 아이템들을 가로로 나열 */
-    gap: 4px; /* 메뉴 링크 탭 간 4px의 공백 생성 */
+    background: #16213e; /* 배경색은 네이비색 */
+    padding: 0 24px; /* 내부 여백을 상하 0, 좌우 24px로 설정 */
+    display: flex; /* 가로 방향으로 정렬 */
+    gap: 4px; /* 항목 간 4px 여백 */
 }
+/* 네비게이션 바 내부의 링크들에 대한 설정 */
 nav a {
-    color: #ccc; /* 기본 링크 글자색은 연회색 */
-    text-decoration: none; /* 밑줄 제거 */
-    padding: 12px 16px; /* 클릭 영역 확보를 위한 패딩 설정 */
-    display: block; /* 블록 요소화 */
-    font-size: 0.95rem;
+    color: #ccc; /* 색깔은 회색 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    padding: 12px 16px; /* 내부 여백을 좌우 12px, 상하 16px로 설정 */
+    display: block; /* 인라인 속성을 블록으로 설정 */
+    font-size: 0.95rem; /* 폰트 크기를 부모 뷰의 폰트 크기의 95% 로 설정 */
+    transition: all 0.3s ease; /* 레이아웃 에니메이션 0.3초로 설정 */
 }
-/* 현재 활성화된 메뉴 탭 디자인 구현 */
-nav a.active {
-    background: #0f3460; /* 더 밝은 파란색으로 하이라이트 */
-    color: white; /* 글자색은 흰색으로 강조 */
+/* 네비게이션 바 내부의 링크에 마우스를 올렸을 때, 네비게이션 바 내부의 링크 중 .active라는 클래스에 대한 설정 */
+nav a:hover, nav a.active {
+    background: #0f3460; /* 색깔은 다크 블루 */
+    color: white; /* 글자색은 순백색 */
 }
-
-/* ── [중앙 메인 컨텐츠 영역] ── */
-.container { 
-    display: flex; 
-    gap: 20px; 
-    padding: 20px 24px; 
-    max-width: 800px; /* 너무 넓어지지 않게 최대 가로폭 제한 */
-    margin: 0 auto; /* 화면 중앙에 정렬 배치 */
+/* 본문 콘텐츠에 대한 설정 */
+.container {
+    display: flex; /* 가로 방향으로 정렬 */
+    gap: 20px; /* 항목 간 20px 여백 */
+    padding: 20px 24px; /* 내부 여백을 상하 20px, 좌우 24px로 설정 */
+    max-width: 800; /* 최대 너비를 800px로 설정 */
+    margin: 0 auto; /* 외부 여백을 상하 0, 좌우 auto로 설정 */
 }
+/* 메인 영역에 대한 설정 */
 main { 
-    flex: 1; /* 가용한 가로 공간을 가득 채우도록 설정 */
-    background: white; /* 컨텐츠 박스는 보이기 쉽게 흰색 처리 */
-    padding: 32px; /* 넉넉한 내부 여백 */
-    border: 1px solid #ddd; /* 깔끔한 테두리 선 추가 */
-    border-radius: 8px; /* 모서리를 둥글게 깎아 부드러운 느낌 연출 */
-    text-align: center; /* 내부 요소들을 모두 가운데 정렬 */
+    flex: 1; /* flex-grow 속성 1 작동: 우측 사이드바 고정 크기를 제외한 나머지 가로 가용 영역을 전부 독점 흡수 확장 */
+    background: white; /* 배경은 흰색 */
+    padding: 32px; /* 내부 여백을 32px로 설정 */
+    border: 1px solid #ddd; /* 테두리 1px 회색으로 설정 */
+    border-radius: 8px; /* 곡선 처리 8px로 설정 */
+    text-align: center; /* 가운데 정렬 */
 }
-
-/* 레벨 및 최고기록을 보여주는 상단 스코어 패널 */
+/* .status-panel 클래스에 대한 설정 */
 .status-panel { 
-    display: flex; 
+    display: flex;  
     justify-content: space-between; /* 양쪽 끝으로 벌려서 배치 */
     margin-bottom: 20px; 
     font-weight: bold; /* 글자 굵게 */
@@ -71,8 +72,6 @@ main {
     border-bottom: 2px solid #ddd; /* 하단 구분선 추가 */
     padding-bottom: 10px;
 }
-
-/* ── [핵심: 숫자가 보여지는 전광판 보드 디자인] ── */
 .game-board {
     background: #1a1a2e; /* 전광판 느낌을 주도록 어두운 배경 채택 */
     color: #00ffcc; /* 네온 느낌의 밝은 청록색 글자 배치 */
@@ -122,13 +121,12 @@ main {
     background: #ccc; 
     cursor: not-allowed; 
 }
-
-/* ── [하단 푸터 영역] ── */
-footer { 
-    background: #1a1a2e; 
-    color: #aaa; 
-    text-align: center; 
-    padding: 16px 24px; 
-    font-size: 0.85rem; 
-    margin-top: 40px; 
+/* 바닥글에 대한 설정 */
+footer {
+    background: #1a1a2e; /* 배경색은 네이비색 */
+    color: #aaa; /* 글자색은 회색 */
+    text-align: center; /* 가운데로 정렬 */
+    padding: 16px 24px; /* 내부 여백 상하 16px, 좌우 24px로 설정 */
+    font-size: 0.85rem; /* 폰트 크기는 부모 레이아웃 기준 85%로 설정 */
+    margin-top: 20px; /* 상단 외부 여백을 20px로 설정 */
 }

@@ -1,72 +1,68 @@
-/* ── CSS 디자인 스타일시트 영역 ── */
-
-/* 웹 문서 전체 바디(Body) 영역의 공통 배경 및 기본 폰트 제어 */
+/* 전체 영역에 대한 설정 */
 body {
-    font-family: 'Malgun Gothic', sans-serif; /* 가독성이 뛰어난 맑은 고딕을 기본 서체로 채택 */
-    margin: 0; /* 브라우저 자체적으로 부여하는 사방 기본 여백(마진)을 원천 소멸 처리 */
-    background: #f5f5f5; /* 페이지 전체 배경을 눈이 피로하지 않은 차분하고 밝은 회색으로 설정 */
-    color: #222; /* 텍스트의 선명한 가독성 확보를 위해 진한 회색(#222) 적용 */
+    font-family: 'Malgun Gothic', sans-serif; /* 맑은 고딕을 폰트로 설정 */
+    margin: 0; /* 외부 여백 삭제 */
+    background: #f5f5f5; /* 배경색은 흰색 */
+    color: #222; /* 텍스트색은 검은색 */
 }
-
-/* 최상단 브랜딩 헤더 레이아웃 영역 */
+/* 헤더에 대한 설정 */
 header {
-    background: #1a1a2e; /* 신뢰감과 무게감을 주는 테마 색상인 딥네이비 컬러 지정 */
-    color: white; /* 헤더 안의 모든 일반 글자색은 흰색으로 대비 효과 */
-    padding: 16px 24px; /* 콘텐츠 컴포넌트 보호를 위해 상하 16px, 좌우 24px 패딩 부여 */
-    display: flex; /* 가로 배열 구조 및 유연한 배치를 위해 플렉스 박스 레이아웃 가동 */
+    background: #1a1a2e; /* 배경색은 네이비색 */
+    color: white; /* 글자색은 흰색 */
+    padding: 16px 24px; /* 내부 여백 상하 16px, 좌우 24px로 설정 */
+    display: flex; /* 가로 배열 구조로 설정 */
     align-items: center; /* 수직 축을 기준으로 구성 요소들을 정중앙 정렬 */
     justify-content: space-between; /* 좌측 로고 타이틀과 우측 인증 상태 표시창을 양끝으로 균등 분할 배치 */
 }
-/* 헤더 내부의 메인 로고 대제목(h1) 서식 */
+/* 헤더 내부의 h1 태그에 대한 설정 */
 header h1 {
-    margin: 0; /* h1 고유의 기본 마진을 초기화하여 레이아웃 뒤틀림 방지 */
-    font-size: 1.4rem; /* 과하지 않고 균형 잡힌 글자 크기 지정 */
+    margin: 0; /* 외부 여백을 0으로 설정 */
+    font-size: 1.4rem; /* 글자 크기를 1.4rem으로 설정 */
 }
-/* 헤더 우측의 인증 상태 영역 컨테이너 플렉스 박스 */
+/* 헤더 내부 오른쪽의 인증 상태 영역 컨테이너 플렉스 박스 */
 header .header-right {
     display: flex; /* 로그인/회원가입 버튼 또는 환영문구/로그아웃 버튼을 가로로 정렬 */
     align-items: center; /* 수직축 가운데 정렬 */
-    gap: 12px; /* 항목 구성 요소 간 12px의 일정한 간격 유지 */
+    gap: 12px; /* 각 항목과 12px 여백 두기 */
 }
-/* 헤더 내부 링크 및 일반 텍스트 문구 공통 서식 */
+/* 헤더 내부 링크 및 일반 텍스트 문구에 대한 설정 */
 header a, header span {
-    color: white; /* 글자색을 흰색으로 고정 */
-    text-decoration: none; /* 링크 특유의 거친 밑줄 장식을 제거 */
-    font-size: 0.9rem; /* 본문보다 살짝 작게 조절하여 시각적 위계 부여 */
+    color: white; /* 글자색은 흰색 */
+    text-decoration: none; /* 밑줄 장식 제거 */
+    font-size: 0.9rem; /* 폰트 크기를 본문의 90%로 설정 */
 }
-/* 마우스 커서를 헤더 링크 위에 올렸을 때(hover) 반응할 스타일 */
+/* 헤너 내부 메뉴에 마우스 호버링이 시작된다면 */
 header a:hover {
-    text-decoration: underline; /* 사용자 인터랙션 피드백을 위해 밑줄 활성화 */
+    text-decoration: underline; /* 텍스트에 밑줄 장식 추가 */
 }
-/* [동적 제어] 로그인 성공 시 노출될 자바스크립트 전용 커스텀 로그아웃 버튼 서식 */
+/* 로그아웃 버튼에 대한 설정 */
 .btn-logout {
-    background: none; /* 버튼 순정 배경색 소멸 */
-    border: none; /* 버튼 외곽선 제거 */
-    color: #e94560; /* 시그니처 포인트 다홍색을 부여하여 시각적 인지성 상향 */
-    cursor: pointer; /* 마우스 오버 시 클릭 손가락 아이콘 매핑 */
-    font-weight: bold; /* 폰트 두껍게 */
+    background: none; /* 배경색은 없음 */
+    border: none; /* 외곽선은 없음 */
+    color: #e94560; /* 색깔은 빨간색 */
+    cursor: pointer; /* 마우스 오버시 마우스 손모양 표시 */
+    font-weight: bold; /* 폰트는 볼드체 */
 }
-
-/* 메인 네비게이션 가이드 메뉴 바 영역 */
+/* 네비게이션 바에 대한 설정 */
 nav {
-    background: #16213e; /* 헤더 딥네이비와 톤온톤을 이루는 조금 더 밝은 네이비 컬러 */
-    padding: 0 24px; /* 좌우 여백 라인을 헤더 위치와 통일감 있게 매칭 */
-    display: flex; /* 메뉴 아이템들을 가로 방향으로 나열하기 위해 flex 활성화 */
-    gap: 4px; /* 메뉴 링크 탭 간 4px의 공백 생성 */
+    background: #16213e; /* 배경색은 네이비색 */
+    padding: 0 24px; /* 내부 여백을 상하 0, 좌우 24px로 설정 */
+    display: flex; /* 가로 방향으로 정렬 */
+    gap: 4px; /* 항목 간 4px 여백 */
 }
-/* 네비게이션 바 내부의 개별 링크 메뉴 버튼들의 공통 디자인 */
+/* 네비게이션 바 내부의 링크들에 대한 설정 */
 nav a {
-    color: #ccc; /* 비활성화된 일반 메뉴 탭들은 차분한 연회색으로 처리 */
-    text-decoration: none; /* 기본 링크 밑줄 제거 */
-    padding: 12px 16px; /* 사용자가 클릭/터치하기 쉽도록 여유로운 핫스팟 영역(패딩) 확보 */
-    display: block; /* 인라인 속성을 블록으로 변경하여 상하 패딩 여백이 정확히 먹히도록 설정 */
-    font-size: 0.95rem; /* 표준 메뉴 글자 사이즈 정의 */
-    transition: all 0.3s ease; /* 호버 시 색상이 0.3초 동안 부드럽게 감속되며 변하도록 애니메이션 부여 */
+    color: #ccc; /* 색깔은 회색 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+    padding: 12px 16px; /* 내부 여백을 좌우 12px, 상하 16px로 설정 */
+    display: block; /* 인라인 속성을 블록으로 설정 */
+    font-size: 0.95rem; /* 폰트 크기를 부모 뷰의 폰트 크기의 95% 로 설정 */
+    transition: all 0.3s ease; /* 레이아웃 에니메이션 0.3초로 설정 */
 }
-/* 마우스를 올렸을 때(hover) 및 현재 인덱스 페이지에 활성화된 탭(.active)의 하이라이트 스타일 */
+/* 네비게이션 바 내부의 링크에 마우스를 올렸을 때, 네비게이션 바 내부의 링크 중 .active라는 클래스에 대한 설정 */
 nav a:hover, nav a.active {
-    background: #0f3460; /* 세련된 포인트 블루 색상으로 배경 변조 */
-    color: white; /* 글자색을 완전한 흰색으로 강조하여 현재 위치 인지 유도 */
+    background: #0f3460; /* 색깔은 다크 블루 */
+    color: white; /* 글자색은 순백색 */
 }
 
 /* [부가 구성 요소] 유틸리티 상단 게임 검색바 구역 */
@@ -94,146 +90,144 @@ nav a:hover, nav a.active {
     cursor: pointer; /* 손가락 모양 */
 }
 
-/* 본문 콘텐츠 레이아웃 핵심 컨테이너 (Main 콘텐츠 + Side 바 통합 랩) */
+/* 본문 콘텐츠에 대한 설정 */
 .container {
-    display: flex; /* 2단 분할(좌측 본문, 우측 사이드바) 레이아웃 구동을 위한 flex 활성화 */
-    gap: 20px; /* 메인 영역과 사이드바 영역 사이의 간격 공백 20px 격리 */
-    padding: 20px 24px; /* 화면 좌우 가장자리 여백단 확보 */
-    max-width: 1100px; /* 전체 레이아웃이 가로로 과하게 찢어지는 것을 막는 최대폭 제한 */
-    margin: 0 auto; /* 상하는 0, 좌우 마진을 auto로 주어 해상도와 관계없이 무조건 화면 수평 중앙에 안착 */
+    display: flex; /* 가로 방향으로 정렬 */
+    gap: 20px; /* 항목 간 20px 여백 */
+    padding: 20px 24px; /* 내부 여백을 상하 20px, 좌우 24px로 설정 */
+    max-width: 1100px; /* 최대 너비를 1100px로 설정 */
+    margin: 0 auto; /* 외부 여백을 상하 0, 좌우 auto로 설정 */
     box-sizing: border-box; /* 패딩 두께가 전체 가로 너비 연산에 포함되도록 고정 */
 }
-
-/* 좌측 메인 스토리보드 영역 */
+/* 메인 영역에 대한 설정 */
 main {
     flex: 1; /* flex-grow 속성 1 작동: 우측 사이드바 고정 크기를 제외한 나머지 가로 가용 영역을 전부 독점 흡수 확장 */
-    background: white; /* 메인 글씨들이 선명하게 들어오도록 백색 배경 */
-    padding: 24px; /* 콘텐츠 보호 내부 여백 */
-    border: 1px solid #ddd; /* 은은한 외곽 경계선 */
-    border-radius: 8px; /* 부드러운 라운딩 처리 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* 극도의 미세 투명 그림자로 플랫 디자인 세련미 향상 */
+    background: white; /* 배경은 흰색 */
+    padding: 24px; /* 내부 여백을 24px로 설정 */
+    border: 1px solid #ddd; /* 테두리 1px 회색으로 설정 */
+    border-radius: 8px; /* 곡선 처리 8px로 설정 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* 그림자를 x:0, y:2px, 흐림: 5px, 색깔은 검은색, 투명도는 0.02로 설정 */
 }
-/* 메인 영역 내 각 섹션 타이틀 제목(h2) */
+/* 메인 영역 내부의 h2 태그에 대한 설정 */
 main h2 {
-    margin-top: 0; /* 상단 패딩과의 연산 마찰 방지를 위해 상단 마진 초기화 */
-    border-bottom: 2px solid #1a1a2e; /* 하단부에 메인 테마 색상의 묵직한 가이드라인 밑선 삽입 */
-    padding-bottom: 8px; /* 밑선과 글자 사이 수직 패딩 확보 */
+    margin-top: 0; /* 상단 외부 여백을 0으로 설정 */
+    border-bottom: 2px solid #1a1a2e; /* 하단에 테두리 2px 검은색으로 설정 */
+    padding-bottom: 8px; /* 하단 내부 여백을 8px로 설정 */
 }
-
-/* [중요 강조 박스 UI] 사이트 핵심 가이드 블록 서식 */
+/* .game-info 클래스에 대한 설정 */
 .game-info {
-    background: #f0f4ff; /* 주목도를 높이면서 부드러운 소프트 블루 파스텔 배경색 채택 */
-    border-left: 4px solid #0f3460; /* 좌측면에 두꺼운 포인트 컬러 바를 세워 컴포넌트 입체성 확보 */
-    padding: 16px; /* 박스 내부 공백 확보 */
-    margin-bottom: 20px; /* 아래 항목들과의 격리 마진 */
-    border-radius: 0 6px 6px 0; /* 테두리 바가 붙은 좌측을 제외한 우측 모서리들만 선별적 라운딩 */
+    background: #f0f4ff; /* 배경색은 흰색 */
+    border-left: 4px solid #0f3460; /* 왼쪽 테두리 4px 어두운 파란색으로 설정 */
+    padding: 16px; /* 내부 여백을 16px로 설정 */
+    margin-bottom: 20px; /* 하단 외부 여백을 20px로 설정 */
+    border-radius: 0 6px 6px 0; /* 우측에 곡선 처리 6px, 나머지는 0으로 설정 */
 }
+/* .game-info 클래스 내부의 p태그에 대한 설정 */
 .game-info p {
-    margin: 0 0 8px 0; /* 문단 간 조밀한 줄간격을 유도하기 위해 하단 마진만 8px 부여 */
+    margin: 0 0 8px 0; /* 하단 오른쪽 외부 여백을 8px, 나머지는 0으로 설정 */
 }
-/* 게임 규칙 리스트(ul/li) 컴포넌트 */
+/* .rules 클래스에 대한 설정 */
 .rules {
-    margin-bottom: 20px;
+    margin-bottom: 20px;    /* 하단 외부 여백을 20px로 설정 */
 }
+/* .rules 클래스의 li 태그에 대한 설정 */
 .rules li {
-    margin-bottom: 6px; /* 리스트 항목들이 다닥다닥 붙지 않게 개별 하단 가로 여백 가동 */
-    line-height: 1.6; /* 텍스트 줄간격을 160% 비율로 넓혀 다독 및 가독 편의성 대폭 증진 */
+    margin-bottom: 6px; /* 하단 외부여백을 6px로 설정 */
+    line-height: 1.6; /* 줄 간격을 1.6배로 설정 */
 }
-
-/* 하단 메인 게임 시작 유도 전환 버튼 서식 */
+/* .btn-start 클래스에 대한 설정 */
 .btn-start {
-    background: #e94560; /* 강렬한 시그니처 다홍색 배경 채택 */
-    color: white; /* 순백색 글자 */
-    border: none; /* 순정 외곽선 제거 */
-    padding: 12px 28px; /* 시각적으로 웅장하고 누르기 편한 볼륨 마진 패딩 확보 */
-    font-size: 1rem; /* 시원시원한 표준 폰트 스케일 적용 */
-    font-weight: bold; /* 두껍게 처리하여 행동 촉구(Call To Action) 유도 */
-    border-radius: 4px; /* 라운딩 코너 */
-    cursor: pointer; /* 클릭 손가락 커서 바인딩 */
-    transition: background 0.2s; /* 호버 상태 변환 시 0.2초 딜레이 트랜지션 작동 */
+    background: #e94560; /* 배경은 빨간색 */
+    color: white; /* 글자색은 흰색 */
+    border: none; /* 테두리 삭제 */
+    padding: 12px 28px; /* 내부 여백을 상하 12px, 좌우 28px로 설정 */
+    font-size: 1rem; /* 폰트 크기를 부모 레이아웃 기준 1배로 설정 */
+    font-weight: bold; /* 폰트체는 볼드체 */
+    border-radius: 4px; /* 곡선을 4px로 설정 */
+    cursor: pointer; /* 마우스 오버시 마우스 손모양 표시 */
+    transition: background 0.2s; /* 레이아웃 에니메이션 0.2초로 설정 */
 }
-/* 메인 시작 버튼 호버 스타일 */
+/* .btn-start 클래스에 대한 레이아웃에 호버링할 때에 대한 설정 */
 .btn-start:hover {
-    background: #c73652; /* 마우스를 올릴 시 보다 진하고 어두운 다크레드로 변조 */
+    background: #c73652; /* 배경색은 어두운 빨간색 */
 }
-
-/* 우측 서브 고정 사이드바 단락 */
+/* 우측 사이드바에 대한 설정 */
 aside {
-    width: 220px; /* 사이드바 고유의 정체성을 위해 가로 폭을 220px로 단단히 고정 */
-    flex-shrink: 0; /* 화면이 축소되더라도 사이드바가 찌그러지거나 깨지는 현상을 물리적으로 차단 */
-    display: flex; /* 내부 박스들(광고 박스, 랭킹 박스)을 수직 레이아웃으로 배치하기 위해 flex 전개 */
-    flex-direction: column; /* 플렉스 축 방향을 수평이 아닌 수직(세로 아래 방향)으로 전환 */
-    gap: 16px; /* 사이드바 내부 컴포넌트 간의 수직 격리 공백 간격 */
+    width: 220px; /* 너비를 220px로 설정 */
+    flex-shrink: 0; /* 화면이 축소되더라도 사이드바가 찌그러지거나 깨지는 현상 차단 */
+    display: flex; /* flex 배치로 설정 */
+    flex-direction: column; /* flex 축 방향을 수직으로 설정 */
+    gap: 16px; /* 항목 간 16px 여백 */
 }
-/* 사이드바 내부 서브 위젯 박스(광고/랭킹) 공통 프레임 */
+/* .ad-box 클래스에 대한 설정 */
 .ad-box {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 16px;
-    text-align: center; /* 광고 텍스트 및 이미지 정중앙 정렬 */
-    border-radius: 8px;
+    background: white;  /* 배경색은 흰색 */
+    border: 1px solid #ddd; /* 테두리 1px 회색으로 설정 */
+    padding: 16px;  /* 내부 여백 16px로 설정 */
+    text-align: center; /* 정중앙 정렬로 설정 */
+    border-radius: 8px; /* 곡선을 8px로 설정 */
 }
-/* 광고 정보 인식용 소형 라벨 멘트 서식 */
+/* .ad-box와 .ad-label에 대한 설정 */
 .ad-box .ad-label {
-    font-size: 0.75rem; /* 시선을 방해하지 않도록 최소형 크기 할당 */
-    color: #999; /* 흐릿한 그레이 처리 */
-    margin-bottom: 8px;
+    font-size: 0.75rem; /* 폰트 크기를 부모 레이아웃의 75%로 설정 */
+    color: #999; /* 색깔은 회색 */
+    margin-bottom: 8px; /* 하단 외부 여백을 8px로 설정 */
 }
-/* 광고 가상 이미지 모사 구역 테마 */
+/* .ad-box와 .ad-img에 대한 설정 */
 .ad-box .ad-img {
-    background: #e0e0e0; /* 가상 레이아웃용 솔리드 그레이 색상 적용 */
-    height: 120px; /* 고정 수직 높이 120px 빌드 */
-    display: flex; /* 가짜 텍스트 중앙 배치를 위해 flex 작동 */
+    background: #e0e0e0; /* 배경색은 회색 */
+    height: 120px; /* 높이를 120px로 설정 */
+    display: flex; /* flex 배치로 설정 */
     align-items: center; /* 세로 중앙 정렬 */
     justify-content: center; /* 가로 중앙 정렬 */
-    color: #888; /* 텍스트 컬러 회색 */
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    border-radius: 4px;
-    overflow: hidden;
+    color: #888; /* 텍스트 색은 회색 */
+    font-size: 0.85rem; /* 폰트 크기를 부모 레이아웃의 85%로 설정 */
+    margin-bottom: 8px; /* 하단 외부 여백을 8px로 설정 */
+    border-radius: 4px; /* 곡선을 4px로 설정 */
+    overflow: hidden;   /* 자식 레이아웃이 부모 레이아웃을 넘어가는 부분은 숨기기*/
 }
+/* .ad-image에 대한 설정*/
 .ad-image {
-    max-width: 100%; /* 이미지가 컨테이너 너비를 초과하지 않도록 유연하게 조절 */
-    height: max-content; /* 이미지의 원본 비율을 유지하면서 높이 자동 조정 */
+    max-width: 100%; /* 너비를 100%로 설정 */
+    height: max-content; /* 높이를 비율에 맞게 최대치로 설정 */
 }
+/* .ad-box에 대한 설정*/
 .ad-box p {
-    font-size: 0.85rem;
-    margin: 0;
-    color: #444;
+    font-size: 0.85rem; /* 폰트 크기를 부모 레이아웃의 85%로 설정 */
+    margin: 0;  /* 외부 여백을 0으로 설정 */
+    color: #444;    /* 텍스트 색깔은 회색 */
 }
-
-/* [실시간 알고리즘 렌더링] 대망의 실시간 순위 리스트 박스 구역 */
+/* .ranking-box에 대한 설정 */
 .ranking-box {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 8px;
+    background: white;  /* 배경색은 흰색 */
+    border: 1px solid #ddd; /* 테두리 1px 회색으로 설정 */
+    padding: 16px;  /* 내부 여백 16px로 설정 */
+    border-radius: 8px; /* 곡선을 8px로 설정 */
 }
-/* 랭킹 박스 헤더 소제목(h3) */
+/* .ranking-box 내부의 h3 태그에 대한 설정 */
 .ranking-box h3 {
-    margin: 0 0 12px 0;
-    font-size: 1rem;
-    border-bottom: 1px solid #eee; /* 가느다란 가이드 밑선 */
-    padding-bottom: 8px;
+    margin: 0 0 12px 0; /* 오른쪽 하단 외부 여백을 12px, 나머지는 0으로 설정 */
+    font-size: 1rem;    /* 폰트 사이즈를 부모 레이아웃의 100%로 설정 */
+    border-bottom: 1px solid #eee; /* 하단 테두리 1px 흰색으로 설정 */
+    padding-bottom: 8px;    /* 하단 내부 여백을 8px로 설정 */
 }
-/* 정렬된 순위가 마크업될 순서 있는 리스트(ol) 컴포넌트 */
+/* .ranking-box 내부의 ol 태그에 대한 설정 */
 .ranking-box ol {
-    margin: 0;
-    padding-left: 20px; /* 숫자 번호(1., 2., 3...)가 들어설 안쪽 공간 확보 */
+    margin: 0;  /* 외부 여백을 0으로 설정 */
+    padding-left: 20px; /* 왼쪽 내부 여백을 20px로 설정 */
 }
-/* 순위 내 개별 랭커 레코드 아이템 서식 */
+/* .ranking-box 내부의 li 태그에 대한 설정 */
 .ranking-box li {
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-    color: #444;
+    font-size: 0.9rem;  /* 폰트 크기를 부모 레이아웃의 90%로 설정 */
+    margin-bottom: 6px; /* 하단 외부 여백을 6px로 설정 */
+    color: #444;    /* 텍스트 색상은 회색 */
 }
-
-/* 하단 저작권 푸터 레이어 */
+/* 바닥글에 대한 설정 */
 footer {
-    background: #1a1a2e; /* 헤더와 패밀리룩을 이루는 어두운 네이비 */
-    color: #aaa; /* 흐린 가독성의 회색 글자 */
-    text-align: center;
-    padding: 16px 24px;
-    font-size: 0.85rem;
-    margin-top: 20px; /* 본문 컨테이너와의 20px 마진 격리 */
+    background: #1a1a2e; /* 배경색은 네이비색 */
+    color: #aaa; /* 글자색은 회색 */
+    text-align: center; /* 가운데로 정렬 */
+    padding: 16px 24px; /* 내부 여백 상하 16px, 좌우 24px로 설정 */
+    font-size: 0.85rem; /* 폰트 크기는 부모 레이아웃 기준 85%로 설정 */
+    margin-top: 20px; /* 상단 외부 여백을 20px로 설정 */
 }
