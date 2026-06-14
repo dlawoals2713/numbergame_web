@@ -1,111 +1,102 @@
-/* [전역 상태 변수 선언 코드 정의] */
-let currentHighScore = 0; // 새로고침 전까지만 유지되는 최고 레벨 점수 저장 공간
+let currentHighScore = 0;   // 현재 최고 레벨
 
-/* 1. 로그인 없이 기본 UI 셋팅 */
-// 비회원 접속 통제를 없애고 가상의 이름만 띄워줍니다.
-document.getElementById('authArea').innerHTML = `<span><strong>홍길동</strong>님 플레이 중</span>`;
-document.getElementById('lblHighScore').textContent = '최고기록: Lv.' + currentHighScore;
+document.getElementById('authArea').innerHTML = `<span><strong>홍길동</strong>님 플레이 중</span>`;     // 누가 플레이 하고 있는지 오른쪽 상당에 표시
+document.getElementById('lblHighScore').textContent = '최고기록: Lv.' + currentHighScore;   // 게임 최고 기록 표시
 
-/* 2. 인게임 상태 관리 제어 변수 모음 */
-let level = 1;              // 현재 플레이어가 머물고 있는 라운드 레벨
-let generatedNumbers = "";  // 컴퓨터가 출제한 랜덤 숫자 문자열
-let isPlaying = false;      // 현재 유저가 정답 입력 제출 모드 상태인지 판별
+let level = 1;  // 현재 플레이어가 플레이 중인 레벨
+let generatedNumbers = "";  // 랜덤 숫자 문자열 (정답 값)
+let isPlaying = false;  // 정답 제출 모드인가
 
-const gameScreen = document.getElementById('gameScreen');
-const gameBtn = document.getElementById('gameBtn');
-const userInput = document.getElementById('userInput');
+const gameScreen = document.getElementById('gameScreen');   // 숫자가 표시되는 화면
+const gameBtn = document.getElementById('gameBtn');     // 게임 시작/정답 체출 버튼
+const userInput = document.getElementById('userInput');     // 사용자 입력 칸
 
-/* 3. 통합 제어 메인 버튼 이벤트 리스너 연동 */
-gameBtn.addEventListener('click', function() {
-    if (!isPlaying) {
-        startLevel();
+gameBtn.addEventListener('click', function() {  // 버튼이 눌렸을 때
+    if (!isPlaying) {   // 정답 제출 모드가 아니라면
+        startLevel();   // 게임 시작
     } else {
-        checkAnswer();
+        checkAnswer();  // 정답 확인
     }
 });
 
-/* 4. 숫자를 순차적으로 보여주고 숨기는 타이머 함수 */
+// 게임 시작 함수
 function startLevel() {
-    userInput.value = "";       
-    userInput.disabled = true;  
-    gameBtn.disabled = true;    
+    userInput.value = "";    // 사용자 입력값   
+    userInput.disabled = true;      // 사용자 입력칸을 비활성화 상태로 변경
+    gameBtn.disabled = true;        // 버튼을 비활성화 상태로 변경
     
-    let totalDigits = level + 2; 
-    generatedNumbers = ""; 
+    let totalDigits = level + 2;    // 표시되는 숫자는 현재 레벨 + 2개로 표시 (총 개수)
+    generatedNumbers = "";  // 저장할 정답 값
     
-    for (let i = 0; i < totalDigits; i++) {
-        generatedNumbers += Math.floor(Math.random() * 10);
+    for (let i = 0; i < totalDigits; i++) {     // 총 개수만큼 랜덤값 생성하여 문자열 맨 뒤에 저장
+        generatedNumbers += Math.floor(Math.random() * 10);     // 변수 맨 뒤에 랜덤값(소숫점 삭제) 저장
     }
 
-    let currentIndex = 0;
+    let currentIndex = 0;   // 숫자가 표시될 횟수
 
-    function flashNextNumber() {
-        if (currentIndex < generatedNumbers.length) {
-            gameScreen.textContent = generatedNumbers[currentIndex];
-            gameScreen.style.color = "#00ffcc"; 
-            currentIndex++; 
+    function flashNextNumber() {    // 숫자 깜박이게 하는 함수
+        if (currentIndex < generatedNumbers.length) {   // currentIndex의 값이 generatedNumbers의 숫자 개수보다 적다면
+            gameScreen.textContent = generatedNumbers[currentIndex];    // generatedNumbers의 currentIndex번째 문자를 가져와서 표시
+            gameScreen.style.color = "#00ffcc";     // 색깔은 민트색
+            currentIndex++;     // 현재 위치값 +1
 
-            setTimeout(function() {
-                gameScreen.textContent = ""; 
-                setTimeout(function() {
-                    flashNextNumber(); 
+            setTimeout(function() {     // 지연 시간 0.3초
+                gameScreen.textContent = "";    // 숫자 숨기기
+                setTimeout(function() {     // 지연 시간 0.2초 이후
+                    flashNextNumber();      // 이 함수(flashNextNumber) 다시 호출
                 }, 200); 
             }, 300); 
 
-        } else {
-            gameScreen.textContent = "???"; 
-            gameScreen.style.color = "#e94560"; 
+        } else {    // 현재 위치값이 generatedNumber의 숫자 개수와 같거나 크다면
+            gameScreen.textContent = "???";     // ??? 표시
+            gameScreen.style.color = "#e94560";     // 색깔은 빨간색
             
-            userInput.disabled = false; 
-            userInput.focus();          
+            userInput.disabled = false;     // 사용자 입력칸을 활성화 상태로 변경
+            userInput.focus();          // 자동으로 입력칸에 포커스가 들어오도록 설정, 이걸 하면 사용자가 마우스로 입력칸을 클릭하지 않아도 됨
             
-            gameBtn.disabled = false;   
-            gameBtn.textContent = "제출"; 
-            isPlaying = true;           
+            gameBtn.disabled = false;   // 버튼을 활성화 상태로 변경
+            gameBtn.textContent = "제출";   // 버튼 텍스트를 '제출'로 변경
+            isPlaying = true;   // 정답 제출 모드로 설정
         }
     }
-    flashNextNumber();
+    flashNextNumber();  // 숫자 깜박임 함수 최초 호출
 }
 
-/* 5. 정답 유무 최종 판정 (로컬 스토리지 코드 제거 버전) */
-function checkAnswer() {
-    const userAns = userInput.value.trim();
+function checkAnswer() {    // 정답 확인 함수
+    const userAns = userInput.value.trim();     // 사용자가 입력한 값을 다듬어서(좌우 여백 삭제) 변수에 저장
     
-    if (userAns === "") {
-        alert("기억하신 숫자를 입력하세요");
-        userInput.focus();
-        return;
+    if (userAns === "") {   // 입력값이 비었다면
+        alert("기억하신 숫자를 입력하세요");    // 다이얼로그 표시
+        userInput.focus();  // 사용자 입력칸 포커스
+        return; // 함수 종료(반환)
     }
 
-    if (userAns === generatedNumbers) {
-        // 정답을 맞춘 경우
-        alert("정답. 다음 레벨로 이동합니다.");
-        level++; 
-        document.getElementById('lblLevel').textContent = "현재 레벨: " + level; 
+    if (userAns === generatedNumbers) {     // 사용자가 입력한 값이 정답이라면
+        alert("정답. 다음 레벨로 이동합니다.");     // 정답 다이얼로그 표시
+        level++;    // 레벨 1 추가
+        document.getElementById('lblLevel').textContent = "현재 레벨: " + level;    // 현재 레벨 업데이트
         
-        // 신기록 달성 시 브라우저 변수에만 실시간 업데이트 (스토리지 저장 X)
-        if (level > currentHighScore) {
-            currentHighScore = level; 
-            document.getElementById('lblHighScore').textContent = '최고기록: Lv.' + currentHighScore;
+        if (level > currentHighScore) {     // 최고기록이라면
+            currentHighScore = level;   // 최고기록을 현재 레벨로 설정
+            document.getElementById('lblHighScore').textContent = '최고기록: Lv.' + currentHighScore;   // 최고기록 업데이트
         }
 
-        gameScreen.textContent = "PASS";
-        gameScreen.style.color = "#00ffcc";
-        gameBtn.textContent = "다음 레벨 시작";
-        isPlaying = false; 
-        userInput.disabled = true; 
-    } else {
-        // 오답인 경우
-        alert("아쉽게도 오답입니다!\n정답은 [" + generatedNumbers + "] 이었습니다.\n처음부터 다시 재도전하세요");
+        gameScreen.textContent = "PASS";    // PASS 표시
+        gameScreen.style.color = "#00ffcc";     // 색깔은 민트색
+        gameBtn.textContent = "다음 레벨 시작";     // 버튼 텍스트를 '다음 레벨 시작'으로 변경
+        isPlaying = false;  // 정답 제출 모드 종료
+        userInput.disabled = true;  // 사용자 입력칸을 비활성화 상태로 변경
+    } else {    // 오답인 경우
+        alert("다행히 오답입니다!\n정답은 [" + generatedNumbers + "] 이었습니다.\n처음부터 다시 재도전하세요");     // 오답 다이얼로그 표시
         
-        level = 1; 
-        document.getElementById('lblLevel').textContent = "현재 레벨: " + level;
+        level = 1;  // 레벨을 1로 재설정
+        document.getElementById('lblLevel').textContent = "현재 레벨: " + level;    // 현재 레벨 업데이트
         
-        gameScreen.textContent = "GAME OVER";
-        gameScreen.style.color = "#aaa"; 
-        gameBtn.textContent = "다시 시작하기";
-        isPlaying = false; 
-        userInput.disabled = true; 
-        userInput.value = ""; 
+        gameScreen.textContent = "GAME OVER";   // 텍스트를 'GAME OVER'로 설정
+        gameScreen.style.color = "#aaa";    // 색깔은 회색
+        gameBtn.textContent = "다시 시작하기";  // 버튼 텍스트를 '다시 시작하기'로 변경
+        isPlaying = false;  // 정답 제출 모드 종료
+        userInput.disabled = true;  // 사용자 입력칸을 비활성화 상태로 변경
+        userInput.value = "";   // 사용자 입력칸을 비우기
     }
 }
