@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 기억력 게임</title>
+    
+    <link rel="stylesheet" href="style/index.css">    <!--css파일 연결-->
+</head>
+<body>
+    <header>
+        <h1>🧠 숫자 기억력 게임</h1>
+        <div class="header-right" id="authArea">
+            <a href="login.html">로그인</a>     <!--login.html 화면으로 이동-->
+            <a href="register.html">회원가입</a>    <!--20263520.html 화면으로 이동-->
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">홈</a>      <!--홈 화면으로 이동-->
+        <a href="login.html" id="navLogin">로그인</a>   <!--로그인 화면으로 이동-->
+        <a href="register.html" id="navSignup">회원가입</a>     <!--회원가입 화면으로 이동-->
+        <a href="game.html">게임 시작</a>       <!--게임 화면으로 이동-->
+        <a href="about.html">소개</a>   <!--소개 화면으로 이동-->
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" placeholder="게임 검색...">
+        <button onclick="alert('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n아직 완성되지 않은 검색 버튼을 누르시다니\n감동이에요ㅠㅠㅠㅠ')">검색</button>
+    </div>
+
+    <div class="container">
+        <main>
+            <h2>숫자 기억력 게임</h2>
+            <h3>게임 시작하기</h3>
+            <p>게임을 시작하기 전, 로그인을 완료하여 주세요.</p>
+            <button class="btn-start" id="startActionBtn">지금 시작하기 →</button>
+        </main>
+
+        <aside>
+            <div class="ad-box">
+                <div class="ad-label">광고 AD</div>
+                <div class="ad-img">
+                    <img class="ad-image" src="img/mobal..mobal....hair_loss_2.webp" alt="모발... 모발... 탈모치료" max-width="100%">
+                </div>
+                <p>냉동인간이 되고 3026년에 <br>일어나면 탈모 치료를 받을 수 있따??</p>
+            </div>
+
+            <div class="ranking-box">
+                <h3>명예의 전당 (Top 5)</h3>
+                <ol id="rankList">
+                    <li style="color:#888; list-style:none; margin-left:-20px;">기록이 없습니다.</li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 숫자 기억력 게임. All rights reserved.</p>
+    </footer>
+
+
+    <script src="script/index.js"></script>     <!--자바스크립트 파일 연결-->
+</body>
+</html>

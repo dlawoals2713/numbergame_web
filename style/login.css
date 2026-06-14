@@ -1,0 +1,191 @@
+/* ── [CSS 디자인 스타일시트 영역] ── */
+
+/* 웹 문서 전체 바디(Body) 영역의 공통 배경 및 기본 폰트 제어 */
+body {
+    font-family: 'Malgun Gothic', sans-serif; /* 가독성이 뛰어난 맑은 고딕을 기본 서체로 채택 */
+    margin: 0; /* 브라우저 자체적으로 부여하는 사방 기본 여백(마진)을 원천 소멸 처리 */
+    background: #f5f5f5; /* 페이지 전체 배경을 눈이 피로하지 않은 차분하고 밝은 회색으로 칠함 */
+    color: #222; /* 텍스트의 가독성 확보를 위해 완전 검은색이 아닌 진한 회색(#222) 적용 */
+}
+
+/* 최상단 브랜딩 헤더 레이아웃 영역 */
+header {
+    background: #1a1a2e; /* 신뢰감과 무게감을 주는 테마 색상인 딥네이비 컬러 지정 */
+    color: white; /* 헤더 안의 모든 일반 글자색은 흰색으로 대비 효과 */
+    padding: 16px 24px; /* 콘텐츠 컴포넌트 보호를 위해 상하 16px, 좌우 24px 패딩 부여 */
+    display: flex; /* 가로 배열 구조 및 유연한 배치를 위해 플렉스 박스 레이아웃 가동 */
+    align-items: center; /* 수직 축을 기준으로 구성 요소들을 정중앙 정렬 */
+    justify-content: space-between; /* 좌측 로고 타이틀과 우측 유턴 링크를 양끝으로 균등 분할 배치 */
+}
+/* 헤더 내부의 대제목(h1) 서식 */
+header h1 { 
+    margin: 0; /* h1 고유의 기본 마진을 초기화하여 레이아웃 뒤틀림 방지 */
+    font-size: 1.4rem; /* 과하지 않고 균형 잡힌 글자 크기 지정 */
+}
+/* 헤더 우측의 인증 상태 영역 컨테이너 플렉스 박스 */
+header .header-right {
+    display: flex; /* 로그인/회원가입 버튼 또는 환영문구/로그아웃 버튼을 가로로 정렬 */
+    align-items: center; /* 수직축 가운데 정렬 */
+    gap: 12px; /* 항목 구성 요소 간 12px의 일정한 간격 유지 */
+}
+/* 헤더 우측에 위치한 홈 링크(a) 서식 */
+header a { 
+    color: white; /* 하이퍼링크 글자색을 흰색으로 고정 */
+    text-decoration: none; /* 링크 특유의 거친 밑줄 장식을 강제 제거 */
+    font-size: 0.9rem; /* 본문보다 살짝 작게 조절하여 시각적 위계 부여 */
+}
+/* 마우스 커서를 헤더 링크 위에 올렸을 때(hover) 반응할 스타일 */
+header a:hover { 
+    text-decoration: underline; /* 사용자 인터랙션 피드백을 위해 밑줄 활성화 */
+}
+
+/* 메인 네비게이션 가이드 메뉴 바 영역 */
+nav {
+    background: #16213e; /* 헤더 딥네이비와 톤온톤을 이루는 조금 더 밝은 네이비 컬러 */
+    padding: 0 24px; /* 좌우 여백 라인을 헤더 위치와 통일감 있게 매칭 */
+    display: flex; /* 메뉴 아이템들을 가로 방향으로 나열하기 위해 flex 활성화 */
+    gap: 4px; /* 메뉴 링크 탭 간 4px의 공백 생성 */
+}
+/* 네비게이션 바 내부의 개별 링크 메뉴 버튼들의 공통 디자인 */
+nav a {
+    color: #ccc; /* 비활성화된 일반 메뉴 탭들은 차분한 연회색으로 처리 */
+    text-decoration: none; /* 기본 링크 밑줄 제거 */
+    padding: 12px 16px; /* 사용자가 클릭/터치하기 쉽도록 여유로운 핫스팟 영역(패딩) 확보 */
+    display: block; /* 인라인 속성을 블록으로 변경하여 상하 패딩 여백이 정확히 먹히도록 설정 */
+    font-size: 0.95rem; /* 표준 메뉴 글자 사이즈 정의 */
+    transition: all 0.3s ease; /* 호버 시 색상이 0.3초 동안 부드럽게 감속되며 변하도록 애니메이션 부여 */
+}
+/* 마우스를 올렸을 때(hover) 및 현재 로그인 페이지에 활성화된 탭(.active)의 하이라이트 스타일 */
+nav a:hover, nav a.active {
+    background: #0f3460; /* 세련된 포인트 블루 색상으로 배경 변조 */
+    color: white; /* 글자색을 완전한 흰색으로 강조하여 현재 위치 인지 유도 */
+}
+
+/* 로그인 폼 전체를 중앙 배치하는 메인 컨테이너 흰색 박스 단락 */
+.login-wrap {
+    max-width: 400px; /* 박스가 가로로 너무 늘어져 투박해지는 것을 막기 위해 최대 폭 400px 제한 */
+    margin: 60px auto; /* 위아래 60px 공간을 띄우고, 좌우 마진을 auto로 주어 화면 정중앙에 수평 정렬 */
+    background: white; /* 내부에 기입할 인풋창들이 돋보이도록 순백색 배경 적용 */
+    border: 1px solid #ddd; /* 은은한 회색 실선 테두리로 경계 구분 지어줌 */
+    padding: 32px 36px; /* 박스 내부 콘텐츠들과 외곽 테두리 사이에 넉넉하고 편안한 공백 설정 */
+    border-radius: 8px; /* 딱딱한 느낌을 상쇄하기 위해 모서리를 부드러운 곡률(8px)로 라운딩 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 투명도 5%의 은은한 그림자를 하단에 깔아 입체감 부여 */
+}
+/* 로그인 구역 타이틀 제목(h2) */
+.login-wrap h2 {
+    margin: 0 0 24px 0; /* 위/좌우 마진은 제거하고 하단 입력창과의 간격을 위해 24px 배치 */
+    font-size: 1.4rem; /* 타이틀 글자 크기 */
+    border-bottom: 2px solid #1a1a2e; /* 하단부에 메인 테마 색상의 묵직한 가이드라인 밑선 삽입 */
+    padding-bottom: 10px; /* 밑선과 글자 사이에 수직 간격 패딩 확보 */
+}
+
+/* 아이디, 비밀번호 입력 단위 블록 */
+div.field { margin-bottom: 16px; } /* 각 입력 단위 요소들이 수직으로 붙지 않게 16px 마진으로 격리 */
+
+/* 입력창 바로 위에 붙는 항목 이름표(label) 서식 */
+div.field label {
+    display: block; /* 레이블을 블록화하여 아래 인풋 입력창이 자연스럽게 다음 줄로 떨어지게 유도 */
+    margin-bottom: 6px; /* 이름표 글자와 입력창 사이의 조밀한 간격 미세 조정 */
+    font-weight: bold; /* 중요 표식이므로 두껍게 처리하여 주목도 상향 */
+    font-size: 0.9rem; /* 메인 타이틀보다 한 단계 낮은 폰트 크기 세팅 */
+}
+/* 아이디(text 타입) 및 비밀번호(password 타입) 입력창 공통 커스텀 테마 UI */
+div.field input[type="text"],
+div.field input[type="password"] {
+    width: 100%; /* 부모 요소의 가로 너비를 100% 가득 채우도록 확장 */
+    padding: 10px; /* 인풋창 내부에 입력되는 텍스트가 벽면에 붙지 않도록 도톰한 안쪽 여백 부여 */
+    border: 1px solid #bbb; /* 기본 테두리를 칙칙하지 않은 회색 선으로 래핑 */
+    border-radius: 4px; /* 입력창 모서리를 아주 미세하게 깎아 정돈된 느낌 표현 */
+    box-sizing: border-box; /* 패딩 두께와 테두리 선 굵기가 전체 가로 너비 연산에 포함되도록 고정(박스 깨짐 방지) */
+}
+/* 사용자가 입력창 내부를 마우스로 클릭하여 커서 포커스(focus)가 활성화되었을 때의 스타일 */
+div.field input:focus {
+    border-color: #e94560; /* 시그니처 포인트 색상인 다홍빛 테두리로 실시간 변경 */
+    outline: none; /* 일부 브라우저가 강제로 집어넣는 거친 파란색 아웃라인 테두리를 원천 제거 */
+}
+
+/* [아이디 저장] 체크박스가 위치한 서브 옵션 한 줄 영역 */
+.options { 
+    display: flex; /* 가로 배열 정렬 가동 */
+    gap: 16px; /* 추후 옵션이 추가될 경우를 대비해 항목 간 16px의 공간 자동 확보 */
+    margin-bottom: 16px; /* 하단 캡차 박스와의 간격 격리 */
+    font-size: 0.9rem; /* 본문 폰트 크기 세팅 */
+}
+/* 체크박스와 함께 묶인 레이블에 마우스 손가락 모양 부여 */
+.options label { cursor: pointer; }
+
+/* [캡차 우회 방지 컴포넌트] 로봇이 아닙니다 가짜 매커니즘 UI 구현 박스 */
+.captcha-box {
+    border: 1px solid #bbb; /* 경계 테두리 실선 부여 */
+    padding: 12px; /* 내부 여백 설정 */
+    margin-bottom: 16px; /* 로그인 버튼과의 간격 설정 */
+    display: flex; /* 내부 요소(체크박스, 텍스트, 로고)들을 가로선상으로 배치 */
+    align-items: center; /* 세로축 정중앙 정렬 정돈 */
+    gap: 12px; /* 체크박스와 글자 간 격리 공백 */
+    background: #fafafa; /* 미세하게 어두운 연회색 배경을 깔아 특수 인증 구역임을 강조 */
+    border-radius: 4px; /* 라운딩 코너 */
+}
+/* 캡차 안내 문구 글자 클릭 시에도 체크박스가 바뀔 수 있으므로 손가락 커서 바인딩 */
+.captcha-box label { font-size: 0.9rem; cursor: pointer; }
+/* 우측 끝 정렬되는 구글 reCAPTCHA 모조 스타일 로고 텍스트 디자인 */
+.captcha-logo { 
+    margin-left: auto; /* 마진 레프트를 auto로 주면 플렉스 레이아웃 규칙 상 우측 끝으로 강제 압착됨 */
+    font-size: 0.7rem; /* 아주 작고 정밀한 폰트 스케일 적용 */
+    color: #888; /* 희미한 회색 톤 지정 */
+    text-align: center; /* 2줄 문구이므로 텍스트 가운데 정렬 */
+}
+
+/* 최종 로그인 수행 메인 전송 버튼 서식 스타일 */
+.btn-login {
+    width: 100%; /* 가로 공간 폭 100% 꽉 채움 */
+    padding: 12px; /* 버튼의 위아래 볼륨감을 확보해 터치/클릭 안정감을 주는 패딩 설정 */
+    background: #e94560; /* 강렬한 인상을 남기는 시그니처 다홍색 배경 채택 */
+    color: white; /* 배경과 보색 대비를 이루는 백색 글자색 매핑 */
+    border: none; /* 브라우저 자체 순정 버튼의 촌스러운 테두리 입체 효과 강제 삭제 */
+    border-radius: 4px; /* 버튼 양 끝 코너 완화 라운딩 */
+    font-size: 1rem; /* 한눈에 들어오는 시원한 글자 크기 */
+    font-weight: bold; /* 버튼 문구를 두껍게 강조 강조 */
+    cursor: pointer; /* 마우스 오버 시 클릭이 가능함을 알리는 손가락 아이콘 매핑 */
+    transition: background 0.2s ease; /* 호버 색상 반전에 0.2초 트랜지션 애니메이션 가동 */
+}
+/* 로그인 버튼 호버 상태 스타일 */
+.btn-login:hover { 
+    background: #c73652; /* 마우스를 올리면 조금 더 차분하고 묵직한 다크레드 계열로 배경색 전환 */
+}
+
+/* 아이디 찾기 / 비밀번호 찾기 보조 메뉴 유틸리티 라인 링크 박스 */
+.links { 
+    text-align: center; /* 내부 구분 텍스트들을 정중앙 정렬 */
+    font-size: 0.9rem; 
+    color: #555; 
+    border-top: 1px solid #eee; /* 상단 로그인 버튼부 영역과 물리적 구분을 짓는 가느다란 가이드 탑 실선 추가 */
+    padding-top: 16px; /* 탑 실선과 링크 글씨 간 격리 여백 */
+    margin-top: 4px; 
+}
+/* 유틸리티 링크 앵커 태그 서식 */
+.links a { color: #0f3460; text-decoration: none; }
+.links a:hover { text-decoration: underline; } /* 마우스 올렸을 때만 밑줄 안내 제공 */
+
+/* 회원가입 전환 유도 하단 서브 멘트 줄 */
+.signup-link { margin-top: 12px; text-align: center; font-size: 0.9rem; }
+/* 회원가입 앵커 태그 특별 하이라이트 */
+.signup-link a { color: #e94560; font-weight: bold; text-decoration: none; }
+.signup-link a:hover { text-decoration: underline; }
+
+/* ── [에러 출력 인터페이스] 유효성 미통과 시 주입될 빨간 경고 문구 클래스 ── */
+.error { 
+    color: #e94560; /* 에러 텍스트 고유의 빨간색(다홍색) 지정 */
+    font-size: 0.82rem; /* 다른 레이블 요소보다 다소 작고 콤팩트하게 지정하여 레이아웃 방해 차단 */
+    display: block; /* 인라인 속성을 블록화하여 입력폼 하단 줄바꿈 자리에 강제 단독 안착되도록 제어 */
+    margin-top: 4px; /* 인풋 상자 하단 테두리와의 미세 간격 조정 */
+}
+
+/* 하단 카피라이트 보호 구역 푸터 스타일 */
+footer {
+    background: #1a1a2e; /* 헤더 및 내비게이션과 일맥상통하는 패밀리룩 어두운 네이비 컬러 */
+    color: #aaa; /* 본문보다 훨씬 어두운 회색 처리하여 저작권 표시가 튀지 않게 통제 */
+    text-align: center; /* 글씨 중앙 배치 */
+    padding: 16px 24px; /* 여유로운 내부 패딩 수치 할당 */
+    font-size: 0.85rem; /* 표준 푸터용 소형 폰트 스케일 적용 */
+    margin-top: 60px; /* 로그인 흰색 메인 박스와 완전히 격리하기 위한 무거운 상단 외부 마진 */
+}
